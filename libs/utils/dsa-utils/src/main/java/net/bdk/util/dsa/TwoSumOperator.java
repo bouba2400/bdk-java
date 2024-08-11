@@ -1,11 +1,10 @@
 package net.bdk.util.dsa;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class TwoSumOperator {
-    public int[] perform(int[] nums, int target) {
+    public int[] apply(int[] nums, int target) {
         int[] res = new int[]{-1 , -1};
         Map<Integer, Integer> index = new HashMap<>();
 

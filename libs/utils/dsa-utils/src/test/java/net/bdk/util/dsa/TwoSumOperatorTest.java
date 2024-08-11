@@ -24,7 +24,7 @@ class TwoSumOperatorTest {
     class ResultIsTwoNegativeOnes {
         @Test
         void forNoNumbers() {
-            int [] result = operator.perform(new int[]{}, -1);
+            int [] result = operator.apply(new int[]{}, -1);
             assertThat(result.length).isEqualTo(2);
             assertThat(result[0]).isEqualTo(-1);
             assertThat(result[1]).isEqualTo(-1);
@@ -32,22 +32,22 @@ class TwoSumOperatorTest {
 
         @Test
         void forOneNumber() {
-            int [] result = operator.perform(new int[]{100}, -1);
+            int [] result = operator.apply(new int[]{100}, -1);
             assertThat(result.length).isEqualTo(2);
             assertThat(result[0]).isEqualTo(-1);
             assertThat(result[1]).isEqualTo(-1);
         }
 
         @ParameterizedTest
-        @MethodSource("numbersWithoutPairThatSumToTarget")
+        @MethodSource("paramsForNumbersWithAnyPairThatSumToTarget")
         void forNumbersWithoutPairThatSumToTarget(int[] nums, int target) {
-            int [] result = operator.perform(nums, target);
+            int [] result = operator.apply(nums, target);
             assertThat(result.length).isEqualTo(2);
             assertThat(result[0]).isEqualTo(-1);
             assertThat(result[1]).isEqualTo(-1);
         }
 
-        static Stream<Arguments> numbersWithoutPairThatSumToTarget() {
+        static Stream<Arguments> paramsForNumbersWithAnyPairThatSumToTarget() {
             return Stream.of(
                     arguments(new int[]{0, 0, 0}, 1),
                     arguments(new int[]{100, 200, 300, 600, 900}, 50),
@@ -63,22 +63,22 @@ class TwoSumOperatorTest {
     class ResultIsTwoRespectiveArrayIndices {
         @Test
         void forNumbersWithPairOfZerosThatSumToTarget() {
-            int [] result = operator.perform(new int[]{-5485, 0, -124325478, 666, 0, 125846}, 0);
+            int [] result = operator.apply(new int[]{-5485, 0, -124325478, 666, 0, 125846}, 0);
             assertThat(result.length).isEqualTo(2);
             assertThat(result[0]).isEqualTo(1);
             assertThat(result[1]).isEqualTo(4);
         }
 
         @ParameterizedTest
-        @MethodSource("numbersWithAnyPairThatSumToTarget")
+        @MethodSource("paramsForNumbersWithAnyPairThatSumToTarget")
         void forNumbersWithAnyPairThatSumToTarget(int[] nums, int target, int firstIndex, int secondIndex) {
-            int [] result = operator.perform(nums, target);
+            int [] result = operator.apply(nums, target);
             assertThat(result.length).isEqualTo(2);
             assertThat(result[0]).isEqualTo(firstIndex);
             assertThat(result[1]).isEqualTo(secondIndex);
         }
 
-        static Stream<Arguments> numbersWithAnyPairThatSumToTarget() {
+        static Stream<Arguments> paramsForNumbersWithAnyPairThatSumToTarget() {
             return Stream.of(
                     arguments(new int[]{2, 7, 11, 15}, 9, 0, 1),
                     arguments(new int[]{13, 2, 4}, 6, 1, 2),
