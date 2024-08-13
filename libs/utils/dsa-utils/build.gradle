@@ -1,6 +1,9 @@
 plugins {
     id 'java-library'
+    id 'org.checkerframework' version '0.6.43'
 }
+
+apply plugin: 'org.checkerframework'
 
 test {
     useJUnitPlatform()
@@ -8,6 +11,13 @@ test {
 
 repositories {
     mavenCentral()
+}
+
+checkerFramework {
+    checkers = [
+            'org.checkerframework.checker.nullness.NullnessChecker'
+    ]
+    excludeTests = true
 }
 
 dependencies {

@@ -1,13 +1,15 @@
 package net.bdk.util.dsa;
 
 import java.util.LinkedList;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 public class LinkedListCycleDetection {
-    public boolean perform(LinkedList<Object> linkedList) {
+    public boolean perform(@NonNull LinkedList<Object> linkedList) {
         throw new UnsupportedOperationException();
     }
 
-    public boolean perform(IntListNode head) {
+    public boolean perform(@NonNull IntListNode head) {
         boolean res = false;
         IntListNode i = head;
         IntListNode j = head;
@@ -22,14 +24,14 @@ public class LinkedListCycleDetection {
                     break;
                 }
             }
-        } while (j != null);
+        } while (j != null && i != null);
 
         return res;
     }
 
     public static class IntListNode {
         int val;
-        IntListNode next;
+        @Nullable IntListNode next;
         public IntListNode(int val) {
             this.val = val;
         }
