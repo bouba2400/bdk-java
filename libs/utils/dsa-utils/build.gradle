@@ -1,4 +1,5 @@
 plugins {
+    id 'net.bdk.base-conventions'
     id 'java-library'
     id 'org.checkerframework' version '0.6.43'
 }
@@ -7,10 +8,6 @@ apply plugin: 'org.checkerframework'
 
 test {
     useJUnitPlatform()
-}
-
-repositories {
-    mavenCentral()
 }
 
 checkerFramework {
