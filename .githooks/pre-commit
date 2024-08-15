@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+source ./.envrc || exit 11
+
+# Partly from gist at https://gist.github.com/chadmaughan/5889802
+# stash any unstaged changes
+git stash -q --keep-index
+
+# make sure build is ok
+./gradlew buildAll
+
+# store the last exit code in a variable
+RESULT=$?
+
+# unstash the unstashed changes
+git stash pop -q
+
+# return the './gradlew test' exit code
+exit $RESULT
