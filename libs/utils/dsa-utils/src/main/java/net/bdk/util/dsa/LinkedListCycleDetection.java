@@ -9,7 +9,7 @@ public class LinkedListCycleDetection {
         throw new UnsupportedOperationException();
     }
 
-    public boolean perform(@NonNull IntListNode head) {
+    public boolean perform(IntListNode head) {
         boolean res = false;
         IntListNode i = head;
         IntListNode j = head;
@@ -34,6 +34,10 @@ public class LinkedListCycleDetection {
         @Nullable IntListNode next;
         public IntListNode(int val) {
             this.val = val;
+        }
+        public IntListNode(int val, IntListNode next) {
+            this.val = val;
+            this.next = next;
         }
     }
 }

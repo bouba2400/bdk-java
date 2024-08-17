@@ -13,8 +13,8 @@ git stash -q --keep-index
 # store the last exit code in a variable
 RESULT=$?
 
-# unstash the unstashed changes
+# unstash the stashed changes
 git stash pop -q
 
-# return the './gradlew test' exit code
+# return the './gradlew ...' exit code
 exit $RESULT

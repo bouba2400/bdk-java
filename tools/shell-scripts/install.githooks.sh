@@ -14,5 +14,5 @@ cp ../../.githooks/* ../../.git/hooks/ || exit 2
 
 # restore cwd if different from script dir
 if [ "$sdir" != "$cwdir" ]; then
-  cd "$cwdir" || exit 1
+  cd "$cwdir" || exit 3
 fi

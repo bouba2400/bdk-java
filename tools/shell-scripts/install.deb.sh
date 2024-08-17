@@ -10,8 +10,8 @@ if [ "$sdir" != "$cwdir" ]; then
 fi
 
 # invoke installers
-. install.stack.deb.sh
-. install.githooks.sh
+. install.devtools.deb.sh
+. ./install.githooks.sh
 
 # restore cwd if different from script dir
 if [ "$sdir" != "$cwdir" ]; then
