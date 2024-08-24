@@ -1,0 +1,13 @@
+plugins {
+    id 'java-platform'
+}
+
+subprojects {
+    apply plugin: 'java-platform'
+
+    group = 'net.bdk'
+
+    javaPlatform {
+        allowDependencies()
+    }
+}

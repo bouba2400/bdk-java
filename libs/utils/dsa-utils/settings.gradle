@@ -1,1 +1,2 @@
 includeBuild '../../../tools/gradle-conventions'
+includeBuild '../../../tools/gradle-platforms'

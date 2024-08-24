@@ -1,4 +1,5 @@
 rootProject.name = 'bdk'
 
 includeBuild 'tools/gradle-conventions'
+includeBuild 'tools/gradle-platforms'
 includeBuild 'libs/utils/dsa-utils'

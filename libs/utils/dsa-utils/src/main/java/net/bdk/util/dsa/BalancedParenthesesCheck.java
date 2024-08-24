@@ -1,11 +1,9 @@
 package net.bdk.util.dsa;
 
-import org.checkerframework.checker.nullness.qual.NonNull;
-
 import java.util.Stack;
 
 public class BalancedParenthesesCheck {
-    public boolean perform(@NonNull String s) {
+    public boolean perform(String s) {
         if (s.isBlank()) {
             return false;
         }

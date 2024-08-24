@@ -4,4 +4,8 @@ plugins {
 
 subprojects {
     apply plugin: 'groovy-gradle-plugin'
+
+    repositories {
+        gradlePluginPortal()
+    }
 }
