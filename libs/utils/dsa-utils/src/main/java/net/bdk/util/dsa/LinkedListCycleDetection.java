@@ -1,7 +1,6 @@
 package net.bdk.util.dsa;
 
 import java.util.LinkedList;
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 public class LinkedListCycleDetection {
@@ -31,10 +30,13 @@ public class LinkedListCycleDetection {
 
     public static class IntListNode {
         int val;
+
         @Nullable IntListNode next;
+
         public IntListNode(int val) {
             this.val = val;
         }
+
         public IntListNode(int val, IntListNode next) {
             this.val = val;
             this.next = next;

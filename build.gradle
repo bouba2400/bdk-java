@@ -6,10 +6,6 @@ tasks.register('cleanAll') {
     dependsOn gradle.includedBuilds*.task(':clean')
 }
 
-tasks.register('fixAll') {
-    dependsOn gradle.includedBuilds*.task(':fix')
-}
-
 tasks.register('installGitHooks', Copy) {
     from file("$rootDir/.githooks")
     into file("$rootDir/.git/hooks")

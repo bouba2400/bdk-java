@@ -88,12 +88,6 @@ tasks.named('check') {
     dependsOn buildHealth
 }
 
-tasks.register('fix') {
-    group = 'verification'
-    dependsOn fixDependencies
-    dependsOn spotlessApply
-}
-
 tasks.register('vulnCheck') {
     group = 'verification'
     dependsOn dependencyCheckAggregate

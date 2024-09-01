@@ -10,10 +10,6 @@ allprojects {
     javaPlatform {
         allowDependencies()
     }
-
-    tasks.register('fix') {
-        group = 'verification'
-    }
 }
 
 subprojects {

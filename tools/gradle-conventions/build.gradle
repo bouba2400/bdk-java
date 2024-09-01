@@ -8,10 +8,6 @@ allprojects {
     repositories {
         gradlePluginPortal()
     }
-
-    tasks.register('fix') {
-        group = 'verification'
-    }
 }
 
 subprojects {

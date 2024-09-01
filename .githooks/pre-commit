@@ -2,13 +2,10 @@
 
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 source ./.envrc || exit 11
-
+echo testing
 # Partly from gist at https://gist.github.com/chadmaughan/5889802
 # stash any unstaged changes
 git stash -q --keep-index
-
-# fix lint issues
-./gradlew fixAll
 
 # make sure build is ok
 ./gradlew buildAll
