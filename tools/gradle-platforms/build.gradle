@@ -2,7 +2,7 @@ plugins {
     id 'java-platform'
 }
 
-subprojects {
+allprojects {
     apply plugin: 'java-platform'
 
     group = 'net.bdk'
@@ -10,4 +10,11 @@ subprojects {
     javaPlatform {
         allowDependencies()
     }
+
+    tasks.register('fix') {
+        group = 'verification'
+    }
+}
+
+subprojects {
 }

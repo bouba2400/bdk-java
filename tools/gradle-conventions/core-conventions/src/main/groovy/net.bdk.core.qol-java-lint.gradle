@@ -1,0 +1,6 @@
+plugins {
+    // qodana | pmd
+    // jacoco
+}
+
+// tasks: megalinterscan(markups+others)

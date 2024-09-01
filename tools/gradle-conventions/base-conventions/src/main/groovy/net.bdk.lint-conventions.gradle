@@ -1,7 +1,0 @@
-plugins {
-    // gradle lint
-    // qodana
-    // jacoco
-    // spotless
-    // megalinter
-}

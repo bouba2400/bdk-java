@@ -1,0 +1,7 @@
+dependencies {
+    api(platform("org.junit:junit-bom:5.10.3"))
+    
+    constraints {
+        api("org.assertj:assertj-core:3.25.0")
+    }
+}

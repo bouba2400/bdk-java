@@ -1,0 +1,103 @@
+plugins {
+    id 'java'
+    id 'org.checkerframework'
+    id 'net.ltgt.errorprone'
+    id 'com.github.spotbugs'
+    id "org.owasp.dependencycheck"
+    id 'com.diffplug.spotless'
+    id 'com.autonomousapps.dependency-analysis'
+}
+
+group = 'net.bdk'
+//version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    errorprone 'com.google.errorprone:error_prone_core:2.28.0'
+    spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.13.0'
+}
+
+compileJava {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+test {
+    useJUnitPlatform()
+}
+
+checkerFramework {
+    checkers = [
+            'org.checkerframework.checker.nullness.NullnessChecker'
+    ]
+    excludeTests = true
+}
+
+spotbugsMain {
+    reports {
+        html {
+            required = true
+            outputLocation = file("$buildDir/reports/spotbugs/main/spotbugs.html")
+            stylesheet = 'fancy-hist.xsl'
+        }
+    }
+}
+
+spotbugsTest {
+    enabled = false
+}
+
+dependencyCheck {
+    nvd {
+        apiKey = findProperty("nvd.apiKey")
+    }
+    failBuildOnCVSS = 9
+}
+
+spotless {
+    ratchetFrom 'origin/main'
+
+    java {
+        importOrder()
+        removeUnusedImports()
+        palantirJavaFormat()
+        trimTrailingWhitespace()
+        endWithNewline()
+        formatAnnotations()
+//        licenseHeader() // use shared license header file
+    }
+}
+
+dependencyAnalysis {
+}
+
+tasks {
+    compileTestJava {
+        options.errorprone.enabled = false
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs << "-Xlint:deprecation"
+}
+
+tasks.named('check') {
+    dependsOn buildHealth
+}
+
+tasks.register('fix') {
+    group = 'verification'
+    dependsOn fixDependencies
+    dependsOn spotlessApply
+}
+
+tasks.register('vulnCheck') {
+    group = 'verification'
+    dependsOn dependencyCheckAggregate
+//    dependsOn grypescan
+}
+
+// tasks: grypescan(package)

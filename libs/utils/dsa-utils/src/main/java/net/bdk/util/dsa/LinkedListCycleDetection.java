@@ -5,7 +5,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 public class LinkedListCycleDetection {
-    public boolean perform(@NonNull LinkedList<Object> linkedList) {
+    public boolean perform(LinkedList<Object> linkedList) {
         throw new UnsupportedOperationException();
     }
 

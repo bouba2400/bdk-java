@@ -7,6 +7,9 @@ source ./.envrc || exit 11
 # stash any unstaged changes
 git stash -q --keep-index
 
+# fix lint issues
+./gradlew fixAll
+
 # make sure build is ok
 ./gradlew buildAll
 
