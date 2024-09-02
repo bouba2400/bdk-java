@@ -12,5 +12,5 @@ dependencies {
 }
 
 spotbugs {
-    excludeFilter = file("etc/spotbugs/exclude.xml")
+    excludeFilter = file(".spotbugs/exclude.xml")
 }

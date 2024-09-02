@@ -88,10 +88,17 @@ tasks.named('check') {
     dependsOn buildHealth
 }
 
+tasks.register("grypePackageVulnCheck") {
+    group = 'verification'
+    doLast {
+        exec {
+            commandLine "grype",  "--fail-on", "critical", "dir:$buildDir/libs"
+        }
+    }
+}
+
 tasks.register('vulnCheck') {
     group = 'verification'
     dependsOn dependencyCheckAggregate
-//    dependsOn grypescan
+    dependsOn grypePackageVulnCheck
 }
-
-// tasks: grypescan(package)
