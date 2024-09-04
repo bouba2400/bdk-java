@@ -15,7 +15,9 @@ jobs:
       - id: gradle_tooling_changes
         run: echo diff-count=`git diff HEAD~ --name-only --relative=tools/gradle-* | wc -l` >> $GITHUB_OUTPUT
       - id: demoutils_changes
-        run: echo diff-count=`git diff HEAD~ --name-only --relative=libs/utils/demo-utils | wc -l` >> $GITHUB_OUTPUT
+        run: |
+          echo diff-count=`git diff HEAD~ --name-only --relative=libs/utils/demo-utils | wc -l` >> $GITHUB_OUTPUT
+          echo $GITHUB_OUTPUT
 
     outputs:
       gradle_tooling_changes-diff-count: ${{ steps.gradle_tooling_changes.outputs.diff-count }}

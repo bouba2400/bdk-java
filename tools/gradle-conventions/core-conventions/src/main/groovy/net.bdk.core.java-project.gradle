@@ -52,7 +52,7 @@ spotbugsTest {
 
 dependencyCheck {
     nvd {
-        apiKey = findProperty("nvd.apiKey")
+        apiKey = findProperty("nvd.apiKey") ?: System.getenv("NVD_API_KEY")
     }
 //    failBuildOnCVSS = 9
     failBuildOnCVSS = 11
