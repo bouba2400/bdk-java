@@ -2,7 +2,7 @@ plugins {
     id 'java-platform'
 }
 
-allprojects {
+subprojects {
     apply plugin: 'java-platform'
 
     group = 'net.bdk'
@@ -10,7 +10,4 @@ allprojects {
     javaPlatform {
         allowDependencies()
     }
-}
-
-subprojects {
 }

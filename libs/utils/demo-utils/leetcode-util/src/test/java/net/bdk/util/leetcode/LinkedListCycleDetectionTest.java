@@ -1,10 +1,10 @@
-package net.bdk.util.dsa;
+package net.bdk.util.leetcode;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class LinkedListCycleDetectionTest {
     private LinkedListCycleDetection cycleDetection;

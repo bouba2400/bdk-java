@@ -2,13 +2,10 @@ plugins {
     id 'groovy-gradle-plugin'
 }
 
-allprojects {
+subprojects {
     apply plugin: 'groovy-gradle-plugin'
 
     repositories {
         gradlePluginPortal()
     }
-}
-
-subprojects {
 }

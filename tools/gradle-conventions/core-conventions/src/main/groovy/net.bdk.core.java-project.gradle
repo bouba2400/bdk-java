@@ -8,7 +8,7 @@ plugins {
     id 'com.autonomousapps.dependency-analysis'
 }
 
-group = 'net.bdk'
+//group = 'net.bdk'
 //version = '1.0.0'
 
 repositories {
@@ -75,20 +75,6 @@ spotless {
 dependencyAnalysis {
 }
 
-tasks {
-    compileTestJava {
-        options.errorprone.enabled = false
-    }
-}
-
-tasks.withType(JavaCompile).configureEach {
-    options.compilerArgs << "-Xlint:deprecation"
-}
-
-tasks.named('check') {
-    dependsOn projectHealth
-}
-
 tasks.register("grypePackageVulnCheck") {
     group = 'verification'
     doLast {
@@ -102,4 +88,22 @@ tasks.register('vulnCheck') {
     group = 'verification'
     dependsOn dependencyCheckAggregate
     dependsOn grypePackageVulnCheck
+}
+
+tasks {
+    compileTestJava {
+        options.errorprone.enabled = false
+    }
+
+//    compileJava {
+//        dependsOn spotlessApply
+//    }
+}
+
+tasks.named('check') {
+    dependsOn projectHealth
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs << "-Xlint:deprecation"
 }

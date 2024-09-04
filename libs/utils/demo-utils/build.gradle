@@ -3,11 +3,12 @@ plugins {
     id 'net.bdk.core.java-library'
 }
 
-allprojects {
+subprojects {
     apply plugin: 'net.bdk.core.java-project'
     apply plugin: 'net.bdk.core.java-library'
 
-    version = '1.0-SNAPSHOT'
+    version = '1.0-SNAPSHOT' // todo: pull from ref name when rel branch or when tag
+    group = 'net.bdk.util'
 
     spotbugs {
         excludeFilter = file(".spotbugs/exclude.xml")

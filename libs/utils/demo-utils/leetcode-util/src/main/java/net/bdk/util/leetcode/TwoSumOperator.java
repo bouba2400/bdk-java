@@ -1,11 +1,11 @@
-package net.bdk.util.dsa;
+package net.bdk.util.leetcode;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class TwoSumOperator {
     public int[] apply(int[] nums, int target) {
-        int[] res = new int[]{-1 , -1};
+        int[] res = new int[] {-1, -1};
         Map<Integer, Integer> index = new HashMap<>();
 
         for (int i = 0; i < nums.length; i++) {

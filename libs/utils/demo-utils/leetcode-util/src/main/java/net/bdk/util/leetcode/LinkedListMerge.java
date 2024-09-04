@@ -1,12 +1,11 @@
-package net.bdk.util.dsa;
-
-import org.checkerframework.checker.nullness.qual.Nullable;
+package net.bdk.util.leetcode;
 
 import java.util.LinkedList;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 public class LinkedListMerge {
     public boolean perform(LinkedList<Object> linkedList) {
-        throw new UnsupportedOperationException(); //todo: fix
+        throw new UnsupportedOperationException();
     }
 
     public @Nullable IntListNode perform(IntListNode headOne, IntListNode headTwo) {
@@ -58,11 +57,13 @@ public class LinkedListMerge {
 
     public static class IntListNode {
         int val;
-        @Nullable
-        IntListNode next;
+
+        @Nullable IntListNode next;
+
         public IntListNode(int val) {
             this.val = val;
         }
+
         public IntListNode(int val, IntListNode next) {
             this.val = val;
             this.next = next;

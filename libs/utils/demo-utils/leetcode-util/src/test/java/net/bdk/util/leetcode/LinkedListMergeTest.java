@@ -1,10 +1,10 @@
-package net.bdk.util.dsa;
+package net.bdk.util.leetcode;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class LinkedListMergeTest {
     private LinkedListMerge listMerge;
@@ -45,7 +45,7 @@ public class LinkedListMergeTest {
             LinkedListMerge.IntListNode firstEl3 = new LinkedListMerge.IntListNode(1);
             LinkedListMerge.IntListNode firstEl2 = new LinkedListMerge.IntListNode(-27, firstEl3);
             LinkedListMerge.IntListNode firstEl1 = new LinkedListMerge.IntListNode(-61, firstEl2);
-            LinkedListMerge.IntListNode result = listMerge.performIfNonNull(firstEl1,null);
+            LinkedListMerge.IntListNode result = listMerge.performIfNonNull(firstEl1, null);
             assertThat(result).isNotNull();
             assertThat(result).isSameAs(firstEl1);
             assertThat(result.next).isNotNull();

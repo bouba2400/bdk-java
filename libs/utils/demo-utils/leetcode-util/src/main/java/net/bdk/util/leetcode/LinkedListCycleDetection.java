@@ -1,4 +1,4 @@
-package net.bdk.util.dsa;
+package net.bdk.util.leetcode;
 
 import java.util.LinkedList;
 import org.checkerframework.checker.nullness.qual.Nullable;

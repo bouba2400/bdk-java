@@ -21,8 +21,10 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
-      - run: ./gradlew :${{ inputs.name }}:publish
+      - run: |
+          cd ${{ inputs.name }}
+          gradle publishSubprojects
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_ACTOR: ${{ github.actor }}
+          GPR_KEY: ${{ secrets.GPR_KEY }}
+          GPR_USER: ${{ vars.GPR_USER }}
           NVD_API_KEY: ${{ secrets.NVD_API_KEY }}

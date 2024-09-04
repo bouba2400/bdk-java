@@ -1,4 +1,4 @@
-package net.bdk.util.dsa;
+package net.bdk.util.leetcode;
 
 import java.util.Stack;
 
@@ -26,8 +26,8 @@ public class BalancedParenthesesCheck {
 
                 char matchingBracket = openBrackets.pop();
                 if ((c == ')' && matchingBracket != '(')
-                    || (c == '}' && matchingBracket != '{')
-                    || (c == ']' && matchingBracket != '[')) {
+                        || (c == '}' && matchingBracket != '{')
+                        || (c == ']' && matchingBracket != '[')) {
                     hasBalancedBrackets = false;
                     break;
                 }

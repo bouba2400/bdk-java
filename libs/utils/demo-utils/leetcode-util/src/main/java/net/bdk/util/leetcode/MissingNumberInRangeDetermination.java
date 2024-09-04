@@ -1,4 +1,4 @@
-package net.bdk.util.dsa;
+package net.bdk.util.leetcode;
 
 public class MissingNumberInRangeDetermination {
     public int perform(int[] nums) {

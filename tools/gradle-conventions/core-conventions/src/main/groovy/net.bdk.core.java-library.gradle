@@ -9,16 +9,31 @@ publishing {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/bouba2400/bdk-java")
             credentials {
-                username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")
-                password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
+                username = project.findProperty("gpr.user") ?: System.getenv("GPR_USER")
+                password = project.findProperty("gpr.key") ?: System.getenv("GPR_KEY")
             }
         }
     }
     publications {
         gpr(MavenPublication) {
             from components.java
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
         }
     }
 }
 
-tasks.withType(PublishToMavenRepository).configureEach { it.dependsOn vulnCheck }
+tasks.register('publishSubprojects') {
+    group = 'publishing'
+    dependsOn subprojects*.tasks*.named('publish')
+}
+
+tasks.named("publish") {
+    dependsOn vulnCheck
+}

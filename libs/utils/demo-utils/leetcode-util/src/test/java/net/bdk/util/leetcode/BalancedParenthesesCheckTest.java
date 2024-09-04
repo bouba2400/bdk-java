@@ -1,16 +1,15 @@
-package net.bdk.util.dsa;
+package net.bdk.util.leetcode;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
+
+import java.util.stream.Stream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-
-import java.util.stream.Stream;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 public class BalancedParenthesesCheckTest {
     private BalancedParenthesesCheck parenthesesCheck;
@@ -36,11 +35,7 @@ public class BalancedParenthesesCheckTest {
         }
 
         static Stream<Arguments> paramsForStringWithNoParentheses() {
-            return Stream.of(
-                    arguments("    "),
-                    arguments("adh dddd dddjju"),
-                    arguments("kkdkkkd\nddddidd\n")
-            );
+            return Stream.of(arguments("    "), arguments("adh dddd dddjju"), arguments("kkdkkkd\nddddidd\n"));
         }
 
         @ParameterizedTest
@@ -58,8 +53,7 @@ public class BalancedParenthesesCheckTest {
                     arguments("(a)[bnj"),
                     arguments("} lkl"),
                     arguments("jhduj]]"),
-                    arguments("{jhduj (---) } ;;;[(]")
-            );
+                    arguments("{jhduj (---) } ;;;[(]"));
         }
 
         @ParameterizedTest
@@ -76,8 +70,7 @@ public class BalancedParenthesesCheckTest {
                     arguments("dffffg(a)[ {  kioh] }"),
                     arguments("(} [lkl] {www)"),
                     arguments("([]) }{"),
-                    arguments("(hjt([[ffs]])ffsf) pokhg [{]}")
-            );
+                    arguments("(hjt([[ffs]])ffsf) pokhg [{]}"));
         }
     }
 
@@ -96,8 +89,7 @@ public class BalancedParenthesesCheckTest {
                     arguments("()[]{}"),
                     arguments("{ LKDOL(po[ hugfb ---])poiu}"),
                     arguments("[[(({{}}))]]"),
-                    arguments("[[(({{}}))]] {kioh}")
-            );
+                    arguments("[[(({{}}))]] {kioh}"));
         }
     }
 }
