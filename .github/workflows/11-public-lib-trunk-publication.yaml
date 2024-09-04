@@ -24,4 +24,5 @@ jobs:
       - run: ./gradlew :${{ inputs.name }}:publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_ACTOR: ${{ github.actor }}
           NVD_API_KEY: ${{ secrets.NVD_API_KEY }}

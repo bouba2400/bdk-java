@@ -6,7 +6,7 @@ import java.util.LinkedList;
 
 public class LinkedListMerge {
     public boolean perform(LinkedList<Object> linkedList) {
-        throw new UnsupportedOperationException();
+        throw new UnsupportedOperationException(); //todo: fix
     }
 
     public @Nullable IntListNode perform(IntListNode headOne, IntListNode headTwo) {
