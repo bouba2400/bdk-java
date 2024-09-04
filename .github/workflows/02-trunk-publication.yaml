@@ -25,7 +25,7 @@ jobs:
     needs:
       - getchanges
     if: ${{ !cancelled() && !failure() && needs.prepare.outputs.demoutils_changes-diff-count > 0 }}
-    uses: './.github/workflows/11-public-lib-trunk-publication.yaml@main'
+    uses: './.github/workflows/11-public-lib-trunk-publication.yaml'
     with:
       name: demo-utils
     secrets: inherit
