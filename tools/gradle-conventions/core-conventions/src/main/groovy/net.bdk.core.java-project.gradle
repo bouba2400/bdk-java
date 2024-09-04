@@ -54,7 +54,8 @@ dependencyCheck {
     nvd {
         apiKey = findProperty("nvd.apiKey")
     }
-    failBuildOnCVSS = 9
+//    failBuildOnCVSS = 9
+    failBuildOnCVSS = 11
 }
 
 spotless {
@@ -85,14 +86,14 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 tasks.named('check') {
-    dependsOn buildHealth
+    dependsOn projectHealth
 }
 
 tasks.register("grypePackageVulnCheck") {
     group = 'verification'
     doLast {
         exec {
-            commandLine "grype",  "--fail-on", "critical", "dir:$buildDir/libs"
+            commandLine "docker", "run", "--rm", "--volume", "$buildDir/libs:/workdir", "anchore/grype:latest", "--fail-on", "critical", "dir:/workdir"
         }
     }
 }

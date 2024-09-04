@@ -1,9 +1,8 @@
 #!/usr/bin/env sh
 
-# grype
-curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sudo sh -s -- -b /usr/local/bin
-
 # docker
+curl -fsSL https://get.docker.com | sudo sh -s
+sudo usermod -aG docker "$USER"
+echo "LOGOUT AND LOG BACK IN TO ACTIVATE GROUP CHANGE AND RUN DOCKER IN ROOTLESS MODE"
+
 # helm
-# trivy
-# megalinter

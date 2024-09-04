@@ -1,0 +1,31 @@
+name: Trunk Publication
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  getchanges:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - id: gradle_tooling_changes
+        run: echo diff-count=`git diff HEAD~ --name-only --relative=tools/gradle-* | wc -l` >> $GITHUB_OUTPUT
+      - id: demoutils_changes
+        run: echo diff-count=`git diff HEAD~ --name-only --relative=libs/utils/demo-utils | wc -l` >> $GITHUB_OUTPUT
+
+    outputs:
+      gradle_tooling_changes-diff-count: ${{ steps.gradle_tooling_changes.outputs.diff-count }}
+      dsautils_changes-diff-count: ${{ steps.demoutils_changes.outputs.diff-count }}
+
+  publish_demoutils:
+    needs:
+      - getchanges
+    if: ${{ !cancelled() && !failure() && needs.prepare.outputs.demoutils_changes-diff-count > 0 }}
+    uses: '.github/workflows/11-public-lib-trunk-publication.yaml'
+    with:
+      name: demo-utils
+    secrets: inherit

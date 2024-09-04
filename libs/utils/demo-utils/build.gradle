@@ -1,0 +1,15 @@
+plugins {
+    id 'net.bdk.core.java-project'
+    id 'net.bdk.core.java-library'
+}
+
+allprojects {
+    apply plugin: 'net.bdk.core.java-project'
+    apply plugin: 'net.bdk.core.java-library'
+
+    version = '1.0-SNAPSHOT'
+
+    spotbugs {
+        excludeFilter = file(".spotbugs/exclude.xml")
+    }
+}

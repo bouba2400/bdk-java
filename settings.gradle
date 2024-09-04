@@ -2,4 +2,4 @@ rootProject.name = 'bdk'
 
 includeBuild 'tools/gradle-conventions'
 includeBuild 'tools/gradle-platforms'
-includeBuild 'libs/utils/dsa-utils'
+includeBuild 'libs/utils/demo-utils'

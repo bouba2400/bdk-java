@@ -1,16 +1,7 @@
-plugins {
-    id 'net.bdk.core.java-project'
-    id 'net.bdk.core.java-library'
-}
-
 dependencies {
     implementation platform("net.bdk:testing-utils-bom")
     testImplementation 'org.junit.jupiter:junit-jupiter-api'
     testImplementation 'org.junit.jupiter:junit-jupiter-params'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
     testImplementation 'org.assertj:assertj-core'
-}
-
-spotbugs {
-    excludeFilter = file(".spotbugs/exclude.xml")
 }
