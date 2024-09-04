@@ -19,7 +19,7 @@ jobs:
 
     outputs:
       gradle_tooling_changes-diff-count: ${{ steps.gradle_tooling_changes.outputs.diff-count }}
-      dsautils_changes-diff-count: ${{ steps.demoutils_changes.outputs.diff-count }}
+      demoutils_changes-diff-count: ${{ steps.demoutils_changes.outputs.diff-count }}
 
   publish_demoutils:
     needs:
