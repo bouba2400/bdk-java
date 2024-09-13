@@ -1,4 +1,4 @@
 includeBuild '../../../tools/gradle-conventions'
 includeBuild '../../../tools/gradle-platforms'
 
-include 'leetcode-util'
+include 'leetcode-demo-util'

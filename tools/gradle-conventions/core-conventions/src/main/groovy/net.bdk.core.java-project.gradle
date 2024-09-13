@@ -54,8 +54,7 @@ dependencyCheck {
     nvd {
         apiKey = findProperty("nvd.apiKey") ?: System.getenv("NVD_API_KEY")
     }
-//    failBuildOnCVSS = 9
-    failBuildOnCVSS = 11
+    failBuildOnCVSS = 9
 }
 
 spotless {

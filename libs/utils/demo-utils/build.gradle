@@ -7,7 +7,7 @@ subprojects {
     apply plugin: 'net.bdk.core.java-project'
     apply plugin: 'net.bdk.core.java-library'
 
-    version = '1.0-SNAPSHOT' // todo: pull from ref name when rel branch or when tag
+    version = '1.0-SNAPSHOT' // todo: pull from ref name when rel branch or when tag (after validating major number same)
     group = 'net.bdk.util'
 
     spotbugs {
