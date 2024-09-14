@@ -93,10 +93,6 @@ tasks {
     compileTestJava {
         options.errorprone.enabled = false
     }
-
-//    compileJava {
-//        dependsOn spotlessApply
-//    }
 }
 
 tasks.named('check') {

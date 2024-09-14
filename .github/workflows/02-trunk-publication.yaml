@@ -25,7 +25,7 @@ jobs:
   publish_demoutils:
     needs:
       - getchanges
-    if: ${{ !cancelled() && !failure() && needs.getchanges.outputs.demoutils_changes-diff-count > 0 }}
+    if: ${{ needs.getchanges.outputs.demoutils_changes-diff-count > 0 }}
     uses: './.github/workflows/11-public-lib-trunk-publication.yaml'
     with:
       name: libs/utils/demo-utils
