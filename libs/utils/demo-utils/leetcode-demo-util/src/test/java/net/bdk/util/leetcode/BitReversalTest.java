@@ -31,10 +31,9 @@ public class BitReversalTest {
         static Stream<Arguments> paramsForPositiveNumbers() {
             return Stream.of(
                     arguments(43261596, 964176192),
-                    //arguments(4294967293),
-                    //arguments(1, 2147483648),
-                    //arguments(10),
-                    //arguments(29),
+                    arguments(-3, -1073741825),
+                    arguments(1, -2147483648),
+                    arguments(-1, -1),
                     arguments(0, 0)
             );
         }
