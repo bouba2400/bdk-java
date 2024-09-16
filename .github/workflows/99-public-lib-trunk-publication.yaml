@@ -33,5 +33,4 @@ jobs:
         with:
           name: build-reports
           path: |
-            ${{ inputs.name }}/build/reports
-            build/reports
+            ${{ inputs.name }}/**/build/reports

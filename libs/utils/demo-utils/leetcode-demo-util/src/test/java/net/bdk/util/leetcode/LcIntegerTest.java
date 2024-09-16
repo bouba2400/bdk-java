@@ -12,47 +12,46 @@ import java.util.stream.Stream;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
-public class BitReversalTest {
-    private BitReversal testee;
-
-    @BeforeEach
-    void setup() {
-        testee = new BitReversal();
-    }
+public class LcIntegerTest {
+    private LcInteger testee;
 
     @Nested
-    class ResultIsBitReversedNumber {
+    class GetsHammingWeightAsCountOfSetBits {
         @Test
         void forZero() {
-            int actual = testee.perform(0);
+            testee = new LcInteger(0);
+            int actual = testee.getHammingWeight();
             assertThat(actual).isEqualTo(0);
         }
 
         @ParameterizedTest
         @MethodSource("paramsForPositiveNumbers")
-        void forPositiveNumbers(int n, int bitReversedNumber) {
-            int actual = testee.perform(n);
-            assertThat(actual).isEqualTo(bitReversedNumber);
+        void forPositiveNumbers(int n, int expected) {
+            testee = new LcInteger(n);
+            int actual = testee.getHammingWeight();
+            assertThat(actual).isEqualTo(expected);
         }
 
         static Stream<Arguments> paramsForPositiveNumbers() {
             return Stream.of(
-                    arguments(43261596, 964176192),
-                    arguments(1, -2147483648)
+                    arguments(11, 3),
+                    arguments(2147483645, 30),
+                    arguments(1, 1)
             );
         }
 
         @ParameterizedTest
         @MethodSource("paramsForNegativeNumbers")
-        void forNegativeNumbers(int n, int bitReversedNumber) {
-            int actual = testee.perform(n);
-            assertThat(actual).isEqualTo(bitReversedNumber);
+        void forNegativeNumbers(int n, int expected) {
+            testee = new LcInteger(n);
+            int actual = testee.getHammingWeight();
+            assertThat(actual).isEqualTo(expected);
         }
 
         static Stream<Arguments> paramsForNegativeNumbers() {
             return Stream.of(
-                    arguments(-3, -1073741825),
-                    arguments(-1, -1)
+                    arguments(-3, 31),
+                    arguments(-1, 32)
             );
         }
     }
