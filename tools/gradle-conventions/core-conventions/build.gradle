@@ -1,8 +1,8 @@
 dependencies {
-    implementation 'org.checkerframework:checkerframework-gradle-plugin:0.6.43'
-    implementation 'net.ltgt.gradle:gradle-errorprone-plugin:4.0.1'
-    implementation 'com.github.spotbugs.snom:spotbugs-gradle-plugin:4.8.0'
-    runtimeOnly 'org.owasp:dependency-check-gradle:10.0.3'
-    implementation 'com.diffplug.spotless:spotless-plugin-gradle:6.25.0'
-    implementation 'com.autonomousapps:dependency-analysis-gradle-plugin:1.33.0'
+    implementation libs.checkerframework.gradle.plugin
+    implementation libs.gradle.errorprone.plugin
+    implementation libs.spotbugs.gradle.plugin
+    runtimeOnly libs.dependency.check.gradle
+    implementation libs.spotless.plugin.gradle
+    implementation libs.dependency.analysis.gradle.plugin
 }

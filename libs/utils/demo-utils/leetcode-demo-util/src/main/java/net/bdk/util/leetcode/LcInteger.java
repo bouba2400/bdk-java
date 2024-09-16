@@ -1,7 +1,7 @@
 package net.bdk.util.leetcode;
 
 public class LcInteger {
-    private int n;
+    private final int n;
 
     public LcInteger(int integer) {
         n = integer;
