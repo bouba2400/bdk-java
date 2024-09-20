@@ -12,11 +12,14 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 2
+        name: checkout code
       - id: gradle_tooling_changes
         run: echo diff-count=`git diff HEAD~ --name-only --relative=tools/gradle-* | wc -l` >> "$GITHUB_OUTPUT"
+        name: get change count in tools/gradle
       - id: demoutils_changes
         run: |
           echo diff-count=`git diff HEAD~ --name-only --relative=libs/utils/demo-utils | wc -l` >> "$GITHUB_OUTPUT"
+        name: get change count in libs/utils/demo-utils
 
     outputs:
       gradle_tooling_changes-diff-count: ${{ steps.gradle_tooling_changes.outputs.diff-count }}

@@ -16,11 +16,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        name: checkout code
       - uses: actions/setup-java@v4
+        name: setup jdk
         with:
           java-version: '17'
           distribution: 'temurin'
       - uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
+        name: setup gradle
       - run: |
           cd ${{ inputs.name }}
           gradle publishSubprojects
@@ -28,9 +31,11 @@ jobs:
           GPR_KEY: ${{ secrets.GPR_KEY }}
           GPR_USER: ${{ vars.GPR_USER }}
           NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
+        name: build and upload packages
       - uses: actions/upload-artifact@v4
         if: ${{ success() || failure() }}
         with:
           name: build-reports
           path: |
             ${{ inputs.name }}/**/build/reports
+        name: store build reports
