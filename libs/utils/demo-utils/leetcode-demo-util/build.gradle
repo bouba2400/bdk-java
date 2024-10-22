@@ -1,5 +1,5 @@
 dependencies {
-    implementation platform("net.bdk:testing-utils-bom")
+    implementation platform("net.bdk:testing-utils-constraints")
     testImplementation 'org.junit.jupiter:junit-jupiter-api'
     testImplementation 'org.junit.jupiter:junit-jupiter-params'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'

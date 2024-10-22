@@ -1,3 +1,5 @@
+// todo: refactor into LcIntLinkedList
+
 package net.bdk.util.leetcode;
 
 import java.util.LinkedList;

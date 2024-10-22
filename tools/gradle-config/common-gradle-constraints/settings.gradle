@@ -1,0 +1,3 @@
+includeBuild '../base-gradle-conventions'
+
+include 'testing-utils-constraints'

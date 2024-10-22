@@ -78,7 +78,7 @@ tasks.register("grypePackageVulnCheck") {
     group = 'verification'
     doLast {
         exec {
-            commandLine "docker", "run", "--rm", "--volume", "$buildDir/libs:/workdir", "anchore/grype:latest", "--fail-on", "critical", "dir:/workdir"
+            commandLine "docker", "run", "--rm", "--volume", "$buildDir/libs:/workdir", "anchore/grype:latest", "-v", "--fail-on", "critical", "dir:/workdir"
         }
     }
 }

@@ -1,16 +1,26 @@
 plugins {
-    id 'net.bdk.core.java-project'
-    id 'net.bdk.core.java-library'
+    id 'java-platform'
+    id 'internal.java' apply false
+    id 'internal.java-library' apply false
+}
+
+allprojects {
+    group = 'net.bdk.util'
 }
 
 subprojects {
-    apply plugin: 'net.bdk.core.java-project'
-    apply plugin: 'net.bdk.core.java-library'
+    apply plugin: 'internal.java'
+    apply plugin: 'internal.java-library'
 
     version = '1.0-SNAPSHOT' // todo: pull from ref name when rel branch or when tag (after validating major number same)
-    group = 'net.bdk.util'
 
     spotbugs {
         excludeFilter = file(".spotbugs/exclude.xml")
+    }
+}
+
+dependencies {
+    constraints {
+        api("project:leetcode-demo-util")
     }
 }

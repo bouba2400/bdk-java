@@ -1,0 +1,8 @@
+plugins {
+    id 'de.fayard.refreshVersions' version '0.60.5'
+}
+
+includeBuild '../base-gradle-conventions'
+includeBuild '../common-gradle-constraints'
+
+include 'standard-conventions'

@@ -1,5 +1,6 @@
 rootProject.name = 'bdk'
 
-includeBuild 'tools/gradle-conventions'
-includeBuild 'tools/gradle-platforms'
+includeBuild 'tools/gradle-config/base-gradle-conventions'
+includeBuild 'tools/gradle-config/common-gradle-constraints'
+includeBuild 'tools/gradle-config/common-gradle-conventions'
 includeBuild 'libs/utils/demo-utils'
